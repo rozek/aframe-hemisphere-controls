@@ -4,7 +4,7 @@ a simple "orbit-controls" alternative for A-Frame
 
 For a simple model viewer based on an [A-Frame](https://github.com/aframevr/aframe/) instance embedded in a web page I needed a  mechanism to rotate the shown model by mouse, finger, arrow and WASD keys. Only model(!) rotation was needed, panning and zooming were unwanted. Additionally, stereoscopic display (aka "VR mode") and gyroscopes found in mobile devices had to be disabled.
 
-And since the existing [orbit-controls](https://github.com/supermedium/superframe/tree/master/components/orbit-controls/) did not meet my requirements, I just made my own.
+And since the existing [orbit-controls](https://github.com/supermedium/superframe/tree/master/components/orbit-controls/) component did not meet my requirements, I just made my own.
 
 **NPM users**: please consider the [Github README](https://github.com/rozek/aframe-axeshelper/blob/main/README.md) for the latest description of this package (as updating the docs would otherwise always require a new NPM package version)
 
@@ -30,8 +30,19 @@ Otherwise, load the plain script file directly
 <script src="https://unpkg.com/aframe-hemisphere-controls"></script>
 ```
 
+## Properties ##
 
+`aframe-hemisphere-controls` is an A-Frame component with the following properties:
 
+<table>
+ <tbody>
+  <tr><th>Properties</th><th>Description</th></tr>
+ </tbody>
+ <tbody>
+  <tr><td>position</td><td>a vector with the initial camera position (default: `0 1 4`)</td></tr>
+  <tr><td>target</td><td>a vector specifying thep oint the camera looks at and orbits around (default: `0 1 4`)</td></tr>
+ </tbody>
+</table>
 
 
 
