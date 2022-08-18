@@ -44,9 +44,21 @@ Otherwise, load the plain script file directly
  </tbody>
 </table>
 
+## Usage ##
+
+Once loaded or imported, `aframe-hemisphere-controls` may be used as a component of the scene element
+
+```html
+<a-scene hemisphere-controls="position:0 1 4; target:0 0 0">
+</a-scene>
+```
+
+By default, the shown model is assumed to be positioned in the center of the coordinate system with the camera placed one unit above and four units in front - if need be, you may change these settings as required
+
+## Operation ##
 
 
-### Example ###
+## Example ##
 
 Here is a complete example (albeit without the HTML boilerplate)
 
