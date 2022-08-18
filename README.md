@@ -6,6 +6,33 @@ For a simple model viewer based on an [A-Frame](https://github.com/aframevr/afra
 
 And since the existing [orbit-controls](https://github.com/supermedium/superframe/tree/master/components/orbit-controls/) did not meet my requirements, I just made my own.
 
+## Installation ##
+
+`aframe-hemisphere-controls` may be used as an ECMAScript module (ESM) or explicitly loaded after the `<script>` tag for A-Frame itself.
+
+For the ESM variant, install the package into your build environment using [NPM](https://docs.npmjs.com/) with the command
+
+```
+npm install aframe-hemisphere-controls
+```
+
+and `import` it in your code whereever needed
+
+```javascript
+import "aframe-hemisphere-controls"
+```
+
+Otherwise, load the plain script file directly
+
+```html
+<script src="https://unpkg.com/aframe-hemisphere-controls"></script>
+```
+
+
+
+
+
+
 ### Example ###
 
 Here is a complete example (albeit without the HTML boilerplate)
