@@ -1,6 +1,6 @@
 {
   "name": "aframe-hemisphere-controls",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a simple \"orbit-controls\" alternative for A-Frame",
   "type": "module",
   "main": "./dist/aframe-hemisphere-controls.js",
