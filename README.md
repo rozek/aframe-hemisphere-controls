@@ -6,7 +6,9 @@ For a simple model viewer based on an [A-Frame](https://github.com/aframevr/afra
 
 And since the existing [orbit-controls](https://github.com/supermedium/superframe/tree/master/components/orbit-controls/) component did not meet my requirements, I just made my own.
 
-**NPM users**: please consider the [Github README](https://github.com/rozek/aframe-axeshelper/blob/main/README.md) for the latest description of this package (as updating the docs would otherwise always require a new NPM package version)
+> Note: like many others, `aframe-hemisphere-controls` are based on the Three.js [`OrbitControls`](https://github.com/mrdoob/three.js/blob/master/examples/jsm/controls/OrbitControls.js) found in the Three.js examples folder. However, you do not have to import `OrbitControls` yourself, they come bundled into `aframe-hemisphere-controls`
+
+**NPM users**: please consider the [Github README](https://github.com/rozek/aframe-hemisphere-controls/blob/main/README.md) for the latest description of this package (as updating the docs would otherwise always require a new NPM package version)
 
 ## Installation ##
 
