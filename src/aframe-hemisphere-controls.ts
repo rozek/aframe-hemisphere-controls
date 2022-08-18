@@ -1,74 +1,76 @@
 import './THREE-OrbitControls.js'
 
-declare const AFRAME:any, THREE:any
+  declare const AFRAME:any, THREE:any
 
-delete AFRAME.components['hemisphere-controls']
+/**** (re)define a component for A-Frame ****/
 
-AFRAME.registerComponent('hemisphere-controls', {
-  dependencies: ['camera','vr-mode-ui','look-controls'],
-  schema: {
-    'position': { type:'vec3', default:{ x:0,y:1,z:4 } },
-    'target':   { type:'vec3', default:{ x:0,y:0,z:0 } }
-  },
+  delete AFRAME.components['hemisphere-controls']
 
-/**** init ****/
+  AFRAME.registerComponent('hemisphere-controls', {
+    dependencies: ['camera','vr-mode-ui','look-controls'],
+    schema: {
+      'position': { type:'vec3', default:{ x:0,y:1,z:4 } },
+      'target':   { type:'vec3', default:{ x:0,y:0,z:0 } }
+    },
 
-  init: function ():void {
-    this.el.sceneEl.setAttribute('vr-mode-ui',   'enabled',false)  // disable VR
-    this.el.sceneEl.setAttribute('look-controls','enabled',false)   // important
+  /**** init ****/
 
-    this.Camera        = this.el.getObject3D('camera')
-    this.OrbitControls = new THREE.OrbitControls(
-      this.Camera, this.el.sceneEl.renderer.domElement
-    )
+    init: function ():void {
+      this.el.sceneEl.setAttribute('vr-mode-ui',   'enabled',false)  // disable VR
+      this.el.sceneEl.setAttribute('look-controls','enabled',false)   // important
 
-    Object.assign(this.OrbitControls, {
-      enableKeys:false, enablePan:false, enableZoom:false,
-      minPolarAngle:Math.PI/180*1, maxPolarAngle:Math.PI/180*89
-    })            // reduced limits avoid "strange" behaviour when reaching them
+      this.Camera        = this.el.getObject3D('camera')
+      this.OrbitControls = new THREE.OrbitControls(
+        this.Camera, this.el.sceneEl.renderer.domElement
+      )
 
-    this.KeyEventListener = KeyEventListener.bind(this)
-  },
+      Object.assign(this.OrbitControls, {
+        enableKeys:false, enablePan:false, enableZoom:false,
+        minPolarAngle:Math.PI/180*1, maxPolarAngle:Math.PI/180*89
+      })            // reduced limits avoid "strange" behaviour when reaching them
 
-/**** update ****/
+      this.KeyEventListener = KeyEventListener.bind(this)
+    },
 
-  update: function (oldData:any):void {
-    if (
-      (oldData == null) || (oldData.position == null) ||
-      ! oldData.position.equals(this.data.position)
-    ) {
-      this.Camera.position.copy(this.data.position)
+  /**** update ****/
+
+    update: function (oldData:any):void {
+      if (
+        (oldData == null) || (oldData.position == null) ||
+        ! oldData.position.equals(this.data.position)
+      ) {
+        this.Camera.position.copy(this.data.position)
+      }
+
+      if (
+        (oldData == null) || (oldData.target == null) ||
+        ! oldData.target.equals(this.data.target)
+      ) {
+        this.OrbitControls.target.copy(this.data.target)
+      }
+
+      this.OrbitControls.update()
+    },
+
+  /**** play/pause ****/
+
+    play:  function ():void {
+      this.el.sceneEl.style.cursor = 'grab'            // visual feedback for user
+      startEventHandlingFor(this)
+    },
+
+    pause: function ():void {
+      this.el.sceneEl.style.cursor = 'auto'            // visual feedback for user
+      stopEventHandlingFor(this)
+    },
+
+  /**** remove ****/
+
+    remove: function ():void {
+      this.OrbitControls.reset()
+      this.OrbitControls.dispose()
     }
-
-    if (
-      (oldData == null) || (oldData.target == null) ||
-      ! oldData.target.equals(this.data.target)
-    ) {
-      this.OrbitControls.target.copy(this.data.target)
-    }
-
-    this.OrbitControls.update()
-  },
-
-/**** play/pause ****/
-
-  play:  function ():void {
-    this.el.sceneEl.style.cursor = 'grab'            // visual feedback for user
-    startEventHandlingFor(this)
-  },
-
-  pause: function ():void {
-    this.el.sceneEl.style.cursor = 'auto'            // visual feedback for user
-    stopEventHandlingFor(this)
-  },
-
-/**** remove ****/
-
-  remove: function ():void {
-    this.OrbitControls.reset()
-    this.OrbitControls.dispose()
-  }
-})
+  })
 
 /**** startEventHandlingFor ****/
 
