@@ -57,6 +57,9 @@ By default, the shown model is assumed to be positioned in the center of the coo
 
 ## Operation ##
 
+For the operation, imagine your model being placed inside a small "snow ball" - by rotating the snow ball the model is rotated as well and can be seen from different angles.
+
+Rotation can be achieved by dragging with mouse or finger and by using arrow or "WASD" keys. The "Home" key resets the scene to the original camera position.
 
 ## Example ##
 
