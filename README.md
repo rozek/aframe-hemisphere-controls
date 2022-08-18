@@ -57,7 +57,9 @@ Once loaded or imported, `aframe-hemisphere-controls` may be used as a component
 </a-scene>
 ```
 
-By default, the shown model is assumed to be positioned in the center of the coordinate system with the camera placed one unit above and four units in front - if need be, you may change these settings as required
+By default, the shown model is assumed to be positioned in the center of the coordinate system with the camera placed one unit above and four units in front - if need be, you may change these settings as required.
+
+`vr-mode-ui` and `look-controls` will automatically be disabled.
 
 ## Operation ##
 
