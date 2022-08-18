@@ -1,4 +1,6 @@
-declare const AFRAME, THREE
+import './THREE-OrbitControls.js'
+
+declare const AFRAME:any, THREE:any
 
 delete AFRAME.components['hemisphere-controls']
 
@@ -72,19 +74,17 @@ AFRAME.registerComponent('hemisphere-controls', {
 
   function startEventHandlingFor (Component:any):void {
     window.addEventListener('keydown',Component.KeyEventListener)
-
-    this.RotationPoint = undefined
   }
 
 /**** stopEventHandlingFor ****/
 
   function stopEventHandlingFor (Component:any):void {
-    window.removeEventListener('keydown',   Component.KeyEventListener)
+    window.removeEventListener('keydown',Component.KeyEventListener)
   }
 
 /**** KeyEventListener ****/
 
-  function KeyEventListener (Event:any):void {
+  function KeyEventListener (this:any, Event:any):void {
     let Orbiter = this.OrbitControls
     let Delta   = Math.PI/180
 
