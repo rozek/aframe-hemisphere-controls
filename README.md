@@ -6,7 +6,11 @@ For a simple model viewer based on an [A-Frame](https://github.com/aframevr/afra
 
 And since the existing [orbit-controls](https://github.com/supermedium/superframe/tree/master/components/orbit-controls/) component did not meet my requirements, I just made my own.
 
-**NPM users**: please consider the [Github README](https://github.com/rozek/aframe-axeshelper/blob/main/README.md) for the latest description of this package (as updating the docs would otherwise always require a new NPM package version)
+> Note: like many others, `aframe-hemisphere-controls` are based on the Three.js [`OrbitControls`](https://github.com/mrdoob/three.js/blob/master/examples/jsm/controls/OrbitControls.js) found in the Three.js examples folder. However, you do not have to import `OrbitControls` yourself, they come bundled into `aframe-hemisphere-controls`
+
+**NPM users**: please consider the [Github README](https://github.com/rozek/aframe-hemisphere-controls/blob/main/README.md) for the latest description of this package (as updating the docs would otherwise always require a new NPM package version)
+
+> Just a small note: if you like this work and plan to use it, consider "starring" this repository (you will find the "Star" button on the top right of this page), so that I know which of my repositories to take most care of.
 
 ## Installation ##
 
@@ -53,7 +57,9 @@ Once loaded or imported, `aframe-hemisphere-controls` may be used as a component
 </a-scene>
 ```
 
-By default, the shown model is assumed to be positioned in the center of the coordinate system with the camera placed one unit above and four units in front - if need be, you may change these settings as required
+By default, the shown model is assumed to be positioned in the center of the coordinate system with the camera placed one unit above and four units in front - if need be, you may change these settings as required.
+
+`vr-mode-ui` and `look-controls` will automatically be disabled.
 
 ## Operation ##
 
