@@ -44,7 +44,7 @@ Otherwise, load the plain script file directly
  </tbody>
  <tbody>
   <tr><td>position</td><td>a vector with the initial camera position (default: `0 1 4`)</td></tr>
-  <tr><td>target</td><td>a vector specifying thep oint the camera looks at and orbits around (default: `0 0 0`)</td></tr>
+  <tr><td>target</td><td>a vector specifying the point the camera looks at and orbits around (default: `0 0 0`)</td></tr>
  </tbody>
 </table>
 
